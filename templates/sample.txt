@@ -1,0 +1,1261 @@
+       
+COVID DETECTION THROUGH CHEST XRAY 
+ 
+ 
+              
+Arun Dubey, Eshika Agarwal, Disha Mittal, Shivali Verma 
+ 
+                       
+Bharati Vidyapeeth College Of Engineering (New Delhi)
+ 
+ 
+ABSTRACT
+ 
+ 
+ 
+The COVID
+-
+19 pandemic is creating a 
+crucial outbrea
+k all around the world, 
+having a severe impact on the lives of 
+people globally. One of the majo
+r steps 
+in fighting COVID
+-
+19 is detecting the 
+infected patients as early as possible and 
+providing them with special care. 
+Furthermore
+, in countries that are not
+ 
+able to afford laboratory kits for testing, 
+using chest x
+-
+ray images
+ 
+ 
+becomes even 
+more conven
+ient.
+ 
+Some of the previous 
+works showed specific abnormalities in 
+the chest radiograms of the patients 
+infected with COVID
+-
+19, which 
+inspired the detecting of th
+e virus 
+through chest X
+-
+ray. In this paper we 
+prepare
+ 
+ 
+our own dataset by combining 
+the positiv
+e and negative images that we 
+garnered through two different sources 
+from available datasets. In the dataset we 
+have the chest X
+-
+ray images of patients 
+having co
+vid19 and the other images are 
+of healthy people. We then trained our 
+model and tuned a convolu
+tional neural 
+network to diagnose covid19 using 
+keras, tensorflow and deep learning. 
+Additionally we used opencv for loading 
+and processing the images on the 
+dat
+aset.
+ 
+ 
+Further the model has been successfully 
+deployed using the flask api. It helped us 
+to de
+velop screening technology for the 
+covid19 virus, a crucial worldwide 
+challenge identified by the WHO[1] In 
+that we showed results of the patients 
+that had negat
+ive or positive chest x ray.
+ 
+ 
+ 
+1 INTRODUCTION
+ 
+ 
+Since December 2019, a new disease 
+spread by a v
+irus of the corona family 
+has put the whole world under a threat. 
+It is reported that people with low 
+immunity, old age and with previous 
+medical history especia
+lly related to 
+lungs are more likely to get infected with 
+the COVID
+-
+19 virus.It is specified as
+ 
+a 
+universal welfare emergency of its time 
+and it has escalated all over the world. 
+Due to its communicable effect, 
+governments of various nations are 
+forcing fr
+inge limitations, travel 
+limitations, social distancing, and 
+spreading consciousness of cleanli
+ness. 
+However, the virus is still spreading 
+swiftly. The majority of the people 
+
+experienced gentle to direct respiratory 
+illness, whil
+e some built up devastating 
+pneumonia. Certain assumptions are 
+being made that elderly people w
+ith 
+basic clinical problems like 
+cardiovascular disease, diabetes, 
+ceaseless respiratory infection and 
+malignant growth are bound to produce 
+actual disease [2]. 
+Until now, there is no 
+
+19. Since this disease is highly 
+co
+ntagious the early the patients are 
+diagnosed the better it is. Early diagnosis 
+of the disease not only helps contain the 
+virus, it also helps in fast recovery. 
+It 
+will also help in taking the pressure off 
+the healthcare system and until a cure is 
+found fo
+r the virus, detecting it early will 
+reduce the damage to the world economy 
+as well.
+ 
+ 
+In some of the research it was discovered 
+that through radiography [3] and 
+CT, the 
+patient having covid19 was one of the 
+possibilities. The presence of bilateral 
+nodular 
+and peripheral ground glass 
+opacities should serve as an alert to 
+radiologists [4] that COVID19 may 
+actually be present in certain patients. In 
+addition to that,
+ 
+performing a CT scan 
+has a lesser risk of spreading the bacteria 
+unlike the tests that involve
+ 
+examining 
+the patients respiratory system. With the 
+advances in computer science and 
+artificial intelligence/ machine learning 
+automatic
+ 
+ 
+methods which can help
+ 
+identify the virus at an early stage with 
+high accuracy can help the diagnosis 
+process.
+ 
+Variou
+s machine learning approaches 
+have been used to classify digitised chest 
+images, similarly CNN architecture is 
+one of the most popular deep learning 
+approaches w
+ith superior achievements 
+in the medical imaging domain. The 
+foremost achievement of CNN is due
+ 
+to 
+its ability to learn features automatically 
+from the domain specific images. The 
+plan of action for training CNN is to 
+transfer the grasped knowledge from a 
+pre
+-
+trained network that attained one 
+task into a new task. In this paper, we use 
+a machine lea
+rning framework to predict 
+whether the chest X
+-
+ray images are of a 
+COVID19 patient or not.
+ 
+We prepared the dataset of chest xray 
+images of the patients
+ 
+ 
+diagnose
+d with 
+covid19 and
+ 
+ 
+a set of images of patients 
+who were diagnosed with pneumonia[5] 
+that forgo
+ 
+the presence of covid19. The 
+model was trained with convolutional 
+neural network to diagnose the chest 
+xray images and predict the patients 
+having covid19.
+ 
+ 
+2 R
+ELATED WORK
+ 
+ 
+This part oversees a survey on the recent 
+scientific researches for applying deep 
+learning in the field of medicine
+ 
+ 
+and 
+coronavirus X
+-
+ray classification. An 
+object detection based DarkCovidNet 
+model has been proposed by Ozturk et 
+al. [6] for 
+automatic det
+ection of 
+COVID
+-
+19 cases from the Xray images. 
+They have reported accuracy of 98.08 % 
+for binary classification of X
+-
+ray images 
+into COVID
+-
+19.
+ 
+Similarly, Narin et al. [7] have applied 
+ResNet50, InceptionV3 and 
+InceptionResNetV2 using transfer 
+learning for classification of the X
+-
+ray 
+images into normal and COVID
+-
+19 
+class. This method achieved good 
+performance with an accuracy of 96 % 
+with ResNet50
+. However, the number of 
+X
+-
+ray images are only 100 and the 
+number of images was very less.
+ 
+[8] Convo
+lutional
+ 
+ 
+type 
+Neural
+ 
+ 
+Network
+ 
+ 
+to identify
+ 
+ 
+Covid
+-
+19
+ 
+ 
+positive
+ 
+ 
+patients using X
+-
+Ray
+ 
+ 
+images were used ,
+ 
+ 
+then 
+deployed
+ 
+ 
+the
+ 
+ 
+previously CNN 
+model
+ 
+ 
+and Tra
+ining the
+ 
+ 
+CNN, and 
+created Convolutional Neural Network 
+Architecture.
+ 
+In
+ 
+ 
+a web
+ 
+ 
+application
+ 
+ 
+using
+ 
+a
+ 
+ 
+Python
+ 
+ 
+backend with
+ 
+ 
+a Flask web 
+development framework and other 
+Modules like TensorFlow, Keras, and 
+OpenCV modules to connect ipynb with 
+python then C
+reate the data set and 
+connected it by the database 
+for
+ 
+ 
+Positive
+ 
+ 
+and Negative X Ray 
+images.
+ 
+ 
+3 CNN
+ 
+ 
+Model
+ 
+ 
+Convolutional Neural Networks are a 
+category of deep learning techniques 
+used mainly
+ 
+ 
+to recognize and classify 
+the image. Convolutional Neural 
+Net
+works have achieved astounding 
+success for medical image or video 
+classification and detection. 
+A ty
+pical 
+CNN structure has a convolution layer 
+that extracts features from the input with 
+the filters it applies, a pooling layer to 
+decrease the size for comp
+utational 
+performance, and an entirely connected 
+layer, which is a neural network.[9] By 
+merging suc
+h layers, a CNN model is 
+created, and its parameters are modified 
+to attain a particular task, such as 
+classification or object recognition.
+ 
+The
+ 
+ 
+model that
+ 
+we trained
+ 
+ 
+ends with 
+Avgpool and Softmax layers that 
+produce the outputs. Eventually, a deep 
+model
+ 
+with a huge number of layers is 
+required for the feature extraction of a 
+real
+-
+time object detection system[10].
+ 
+The proposed model consists of 
+convolutiona
+l layers followed by ReLU 
+operations, [11]
+ 
+while each 3 × Conv 
+layer has the same setup three times 
+in 
+successive form, the Maxpool method is 
+used in all the pooling operations. 
+Maxpool reduces
+ 
+ 
+an input by taking the 
+maximum of a region determined by its 
+filter. While operating with two classes, 
+the proposed model performs the 
+COVID
+-
+19 detection task[12
+-
+15
+]. 
+Finally, the layer details and layer 
+parameters of the model are given below 
+:
+ 
+ 
+LAYER TYPE
+ 
+OUTPU
+T 
+SHAPE
+ 
+TRAINABL
+E 
+PARAMS
+ 
+CONV2D_1
+ 
+[222 
+,222 
+,32]
+ 
+896
+ 
+MAX_POOLING2D
+_1
+ 
+[111, 
+111, 32]
+ 
+0
+ 
+CONV_2D_2
+ 
+[109 
+,109 
+,64]
+ 
+18496
+ 
+MAX_POOLING2D
+_2
+ 
+[54 , 54 
+, 64]
+ 
+0
+ 
+CO
+NV2D_3
+ 
+[52 , 
+52,
+ 
+ 
+128
+]
+ 
+73856
+ 
+MAX_POOLING2D
+_3
+ 
+[26 , 26, 
+128]
+ 
+0
+ 
+FLATTEN_1
+ 
+[ 86528]
+ 
+0
+ 
+DENSE_1
+ 
+[64]
+ 
+5537856
+ 
+DENSE_2
+ 
+[1]
+ 
+65
+ 
+ 
+ 
+  
+Figure 
+1
+ 
+: 
+ 
+ 
+Figure : Layer detail and 
+Layer paramete
+r
+.
+ 
+ 
+A schematic presentation for the flow 
+of input data from convolution l
+ayer (C) 
+and Max
+-
+pooling (M) layer, 
+respectively, is given below,
+ 
+ 
+ 
+     
+Figure
+ 
+2
+ 
+: 
+A schematic presentation of 
+convolution and Max
+-
+pooling layer operations.
+ 
+ 
+ 
+ 
+4 D
+ATASET
+ 
+ 
+For this paper, we have combined two 
+sets of dataset from different sources 
+togethe
+r[1
+6
+-
+19
+]. From one set we have 
+obtained the positive images that are 
+the images of chest X
+-
+rays of patients 
+that are infected with covid19 and 
+from the other set we have obtain
+ed 
+the negative images that are the chest 
+X
+-
+rays of patients that are not infected 
+with covid19 virus. For the positive 
+images we have parsed the 
+metadata.csv file found in the covid 
+chest xray dataset from github[
+20
+-
+2
+4]. 
+This open dataset accommodates chest 
+X
+-
+ray and CT images of patients that 
+are infected or suspected of covid19 or 
+other 
+viral infections such as MERS, 
+SARS, and ARDS. The image count for 
+covid19 infected people was
+ 
+approximately
+ 
+1300
+ 
+and the rest of the 
+images were of other diseases 
+including the bacterial 
+infections and 
+the unknown. For the negative images 
+we used the chest xray image 
+pn
+eumonia dataset from kaggle, thi
+s
+ 
+dataset is organized into 
+2
+ 
+folders 
+(train, test
+) and contains subfolders for 
+each image category 
+(Pneumonia/Normal). There are 
+approximately 
+1500
+ 
+X
+-
+Ray images and 
+2 categories (Pneumonia/Normal).
+ 
+It 
+also carries some meta
+-
+data ab
+out 
+each patients, such as sex and age
+.
+ 
+ 
+ 
+  
+Figure
+ 
+3
+ 
+: 
+T
+able for positive image
+s
+ 
+ 
+ 
+ 
+  
+Figure 
+4
+:
+S
+ample from negative datase
+t
+ 
+ 
+ 
+ 
+ 
+  
+Figure 
+5
+: 
+I
+mages of chest x
+-
+ray of 
+patients having covid19.
+ 
+ 
+ 
+ 
+Figure 
+6
+: 
+I
+mages of chest x
+-
+ray of 
+normal patients
+ 
+ 
+ 
+ 
+   
+          
+( a )         
+         
+   
+( b )
+ 
+ 
+Figure
+ 
+7 
+(a)
+: 
+C
+hest X
+-
+ray of normal 
+per
+son. 
+ 
+   
+(b
+): 
+C
+hest X
+-
+ray of covid patient
+ 
+          
+ 
+The chest 
+X
+-
+rays of people having either 
+covid
+19
+ 
+or other disease showed a 
+number of signs which distinguished 
+them from
+ 
+the chest X
+-
+ray of a healthy 
+person. The most common and obvious 
+signs were consolidation with
+ 
+air 
+bronchograms predominantly 
+on the 
+right side which means presence of fluid 
+and/or tissue in pulmonary alveoli 
+preventing gas exchange, nodular 
+shadowing
+ 
+pri
+marily
+ 
+affecting 
+peripheral and lower areas of the lungs. 
+The scans also showed signs 
+of
+ 
+ 
+obscured rig
+ht diaphragmatic 
+silhouette and presence of ground glass 
+opacity. 
+ 
+ 
+ 
+ 
+ 
+ 
+5 RES
+ULT
+ 
+ 
+We carried out experiments to detect and 
+classify COVID
+-
+19 using X
+-
+ray i
+mages 
+from two different datasets. The 
+performance of the proposed model is 
+evaluated using the cross
+-
+validation 
+method for the classification problem. 
+80% of X
+-
+ray images are used for
+ 
+training and 20% for validation. We 
+used 1500 images for the training a
+nd 
+2000 images for validation.
+ 
+ 
+It can be 
+noted
+ 
+ 
+that our proposed model has 
+achieved an average accuracy of 98.9 % 
+in detecting COVID
+-
+19.
+ 
+ 
+ 
+Henceforth
+, we aim to validate our 
+model by 
+including more images. This 
+developed model can be set in a cloud to 
+pro
+vide diagnosis instantly and to help 
+reinstate affected patients immediately. 
+This should lessen the workload of 
+health workers to an extent . We will 
+collect CT images for COVID
+-
+19 
+de
+tection and compare the
+ 
+ 
+results with 
+the proposed model trained using X
+-
+ray 
+images. Also, we will try to gather local 
+radiology images for COVID
+-
+19 cases 
+and evaluate them with our model from 
+sites. Further we deployed the model 
+using python backend with 
+a flask web 
+development framework to screen the 
+results.
+ 
+ 
+    
+ 
+ 
+Figure 
+8
+: Flask app Deploymen
+t
+ 
+                                        
+ 
+ 
+ 
+          
+  
+Figure 
+9
+: Result of Detectio
+n
+ 
+ 
+           
+Figure
+ 
+10
+ 
+: accuracy of our mode
+l
+ 
+ 
+ 
+6
+ 
+ 
+CONCLUSION
+ 
+ 
+The 2019
+ 
+ 
+Coronavirus is a family of 
+viruses that leads to illnesses ranging 
+from the common cold to more severe 
+diseases and may 
+lead to death according 
+to World Health Organization, with the 
+advances in computer algorithms and 
+especially artificial intel
+ligence, the 
+detection of this type of virus in early 
+stages will help in fast recovery. In this 
+paper, a CNN approach with deep 
+l
+earning for COVID
+-
+19 detection 
+in
+ 
+ 
+chest X
+-
+ray images is presented. The 
+primary purpose is to verify the X
+-
+ray 
+images and use 
+CNN to detect the virus 
+from the images.
+ 
+We have put forward a 
+deep learning based model to detect and 
+classify COVID
+-
+19 cases fro
+m X
+-
+ray 
+images. Our model is completely 
+automated with an end
+-
+to
+-
+end structure 
+without the need for manual feature 
+extraction.
+ 
+ 
+7 REFERENCES
+ 
+ 
+[1] L. Li, L. Qin, Z. Xu, Y. Yin, X. 
+Wang, B. Kong, J. Bai, Y. Lu, Z. Fang, 
+Q. Song, K. Cao, D. Liu, G. Wang, Q. 
+X
+u, X. Fang, S. Zhang, J. Xia, and J. Xia, 
+
+covid
+-
+19 from community acquired 
+pneumonia on
+ 
+
+0, no. 0, p. 200905, 0. PMID: 32191588.
+ 
+ 
+ 
+ 
+[2] H. Y. F. Wong, H. Y. S. Lam, A. H.
+-
+T. Fong, S. T. Leung
+, T. W.
+-
+Y. Chin, C. 
+S. Y. Lo, M. M.
+-
+S. Lui, J. C. Y. Lee, K. 
+W.
+-
+H. Chiu, T. Chung, E. Y. P. Lee, E. 
+Y. F. Wan, F. N. I. Hung, 
+T. P. W. Lam, 
+M. Kuo, and M.
+-
+
+distribution of chest radiographic 
+findings in covid
+-
+
+Rad
+iology, vol. 0, no. 0, p. 201160, 0. 
+PMID: 32216717.
+ 
+ 
+ 
+[3] B. Van Ginneken, S. Katsuragawa, 
+B. M. ter Haar Romeny, K. Doi, M. 
+A. 
+Viergever, Automatic detection of 
+abnormalities in chest radiographs using 
+local texture analysis, IEEE transactions 
+on medical
+ 
+imaging 21 (2) (2002) 139
+
+149.
+ 
+ 
+ 
+[4] G. Castellano, L. Bonilha, L. Li, F. 
+Cendes, Texture analysis of medical 
+images, Clinica
+l radiology 59 (12) 
+(2004) 1061
+
+1069.
+ 
+ 
+ 
+ 
+ 
+ 
+[5] cdc. (2020). Coronavirus Disease 
+2019 (COVID
+-
+19). Available:
+ 
+coronavirus/2019
+-
+ncov/
+need
+-
+extraprecautions/people
+-
+at
+-
+higher
+-
+risk.html
+ 
+ 
+[6] T. Ozturk, M. Talo, E. A. Yildirim, 
+U. B. Baloglu, O. Yildirim, U. R. 
+Acharya, Automated detection of covid
+-
+19 cases using deep neural networks 
+with x
+-
+ray images, Computers in 
+Biology and Medicine (2020
+) 103792.
+ 
+ 
+ 
+[7] A. Narin, C. Kaya, Z. Pamuk, 
+Autom
+atic detection of coronavirus 
+disease (covid
+-
+19) using x
+-
+ray images 
+and deep convolutional neural networks, 
+arXiv preprint arXiv:2003.10849 
+(2020).
+ 
+ 
+ 
+[8] WHO: Standardization of 
+interpretation of chest radi
+ographs for 
+the diagnosis of pneumonia
+ 
+in children (2001)
+ 
+ 
+ 
+ 
+ 
+ 
+[9] Ai, T., Yang, Z., Hou, H., Zhan, C., 
+Chen, C., Lv, W., . . .Xia, L.
+ 
+ 
+(2020). 
+Correlation of Chest CT and RT
+-
+PCR 
+Testing in Coronaviru
+s Disease 2019 
+(COVID
+-
+19) in China: A Report of 1014 
+Cas
+es. Radiology, 200642. 
+DOI:10.1148/radiol.2020200642
+ 
+ 
+[10] A. Krizhevsky, I. Sutskever, G. E. 
+Hinton, Imagenet classification with 
+deep convolutional neural networks, in: 
+Advances in neural informatio
+n 
+processing systems, 2012, pp. 1097
+
+1105
+ 
+ 
+[11] X. Huang, J. Shan, V. Vaidya, Lung 
+nodule detection in ct using 3d 
+convolutional neural networks, in: 2017 
+IEEE 14th International Symposium on 
+Biomedical Imaging (ISBI 2017), IEEE, 
+2017, pp. 379
+
+383.
+ 
+ 
+[12] D
+. H. Wolpert, Stacked 
+generalization, Neura
+l networks 5 (2) 
+(1992) 241
+
+ 
+259.
+ 
+ 
+ 
+[13] https://github.com/ieee8023/covid
+-
+chestxray
+-
+dataset
+ 
+ 
+[14] Cohen, Joseph Paul, Paul Morrison, 
+
+-
+19 image data 
+
+arXiv:2003.11597,
+ 
+2020.
+ 
+ 
+[15] Ciregan, D.; Meier, U.; 
+Schmidhuber, J. Multi
+-
+column deep 
+neural networks for image classification. 
+In Proceedings of the 2012 IEEE 
+Conference on Computer Vision and 
+Pattern Recognition, Providence, RI, 
+USA, 16
+
+21 June 2012; pp. 3642
+
+3649.
+ 
+ 
+[16]. Kri
+zhevsky, A.; Sutskever, I.; 
+Hinton, G.E. Imagenet classification 
+with deep convolutional neural 
+networks. Adv. Neural Inf. Process. 
+Syst. 2012, 1097
+
+1105.
+ 
+ 
+[17] Yin, F.; Wang, Q.; Zhang, X.; Liu, 
+C. ICDAR 2013 Chinese Handwriting 
+Recognition Competition. 
+In 
+Proceedings of the 2013 12th 
+International Conference on Document 
+Analysis and Recognition, Washington, 
+DC, USA, 25
+
+28 August 2013; pp. 
+1464
+
+1470
+ 
+[18] El
+-
+Sawy, A.; EL
+-
+Bakry, H.; Loey, 
+M. CNN for Handwritten Arabic Digits 
+Recognition Based on LeNet
+-
+5 BT.
+ 
+In 
+Proceedings of the International 
+Conference on Advanced Intelligent 
+Systems and Informatics 2016, Cairo, 
+Egypt, 24
+
+26 October 2016; Hassanien, 
+A.E., Shaalan, K., Gaber, T., Azar, A.T., 
+Tolba, M.F., Eds.; Springer International 
+Publishing: Cham, Switzer
+land, 2017; 
+pp. 566
+
+575.
+ 
+ 
+ 
+[19] El
+-
+Sawy, A.; Loey, M.; EL
+-
+Bakry, 
+H. Arabic Handwritten Characters 
+Recognition Using Convolutional 
+Neural Network. WSEAS Trans. 
+Comput. Res. 2017, 5, 11
+
+19.
+ 
+ 
+[20] He, K.; Zhang, X.; Ren, S.; Sun, J. 
+Deep Residual Learning f
+or Image 
+Recognition. In Proceedings of the 2016 
+IEEE Conference on Computer Vision 
+and Pattern Recognition (CVPR), Cairo, 
+Egypt, 24
+
+26 October 2016; pp. 770
+
+778.
+ 
+ 
+ 
+[21] Chollet, F. Xception: Deep 
+Learning with Depthwise Separable 
+Convolutions. In Proceed
+ings of the 
+2017 IEEE Conference on Computer 
+Vision and Pattern Recognition (CVPR), 
+Honolulu, HI, USA, 21
+
+26 July 2017; 
+pp. 1800
+
+1807.
+ 
+ 
+[22] Szegedy, C.; Vanhoucke, V.; Ioffe, 
+S.; Shlens, J.; Wojna, Z. Rethinking the 
+inception architecture for computer 
+vi
+sion. In Proceedings of the IEEE 
+Conference on Computer Vision and 
+Pattern Recognition, Las Vegas, NV, 
+USA, 26 June 1
+
+1 July 2016; pp. 2818
+
+2826.
+ 
+ 
+[23] Huang, G.; Liu, Z.; Van Der 
+Maaten, L.; Weinberger, K.Q. Densely 
+Connected Convolutional Networks. In 
+P
+roceedings of the 2017 IEEE 
+Conference on Computer Vision and 
+Pattern Recognition (CVPR), Honolulu, 
+HI, USA, 21
+
+26 July 2017; pp. 2261
+
+2269.
+ 
+ 
+ 
+[24]
+ 
+ 
+Stephen, O.; Sain, M.; Maduh, 
+U.J.; Jeong, D.
+-
+U. An Efficient Deep 
+Learning Approach to Pneumonia 
+Classifi
+cation in Healthcare. J. Healthc. 
+Eng. 2019, 2019, 4180949.
+ 
+ 
